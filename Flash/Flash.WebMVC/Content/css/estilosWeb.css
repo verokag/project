@@ -1,0 +1,141 @@
+﻿/*******Clases propias para usar en los elementos generados*****/
+
+
+
+.regTable  {
+    border-collapse:collapse;
+    border-spacing:0;
+    border-color:#aabcfe;
+    margin:0px;
+    border-radius:10px;
+    width:95%;
+    margin:auto;
+
+}
+
+.regTable td{
+    font-family:Arial, sans-serif;
+    font-size:14px;padding:10px 5px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#aabcfe;
+    color:#669;
+    background-color:#e8edff;
+
+}
+
+.regTable th{
+    font-family:Arial, sans-serif;
+    font-size:14px;
+    font-weight:normal;
+    padding:10px 5px;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    word-break:normal;
+    border-color:#aabcfe;
+    color:#039;
+    background-color:#b9c9fe;
+
+}
+
+body {
+overflow:hidden;
+}
+
+#wrapper {
+
+    width:100%;
+    overflow: auto;
+    position:relative;
+    height:100%;
+}
+
+.my-main-table {
+    width:98%;
+}
+
+#sidebar {
+
+    float:left;
+    background-color:black;
+    border-radius:10px;
+    margin-right:15px;
+    margin-top:25%;
+    margin-left:15px;
+    padding: 20px 20px;
+
+}
+
+
+/**Estados de los links del sidebar*/
+#sidebar p {
+    background-color:green;
+}
+
+#sidebar p:visited  {
+    background-color:red;
+}
+
+#sidebar p:hover {
+    background-color:blue;
+}
+
+#sidebar p:active {
+    background-color:yellow;
+}
+/***End de los estados del sidebar*/
+
+
+#main-sub-div{
+    border:2px solid white;
+    border-radius:10px;
+
+}
+
+.subtitle {
+        border:2px solid gray;
+        padding:10px 5px;
+        text-align:center;
+        align-content:center;
+        width:50%;
+        margin:auto;
+        
+
+        }
+.content-pers-div {
+    border: 2px solid yellow; 
+    border-radius:10px;
+    background-color:rgba(77,77,77,0.4);
+
+}
+
+#main-td-content {
+    width:80%;
+}
+
+.table-generic-content {
+    margin:0px;
+    width:100%;
+}
+
+.table-quick-view {
+    align-content:stretch;
+
+}
+
+input, textarea {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #e2e2e2;
+    color: #333;
+    font-size: 1.2em;
+    margin: 5px 0 6px;
+    padding: 5px;
+    width: 95%;
+}
+
+
+
+/**Hasta aquí************/

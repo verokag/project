@@ -1,0 +1,59 @@
+﻿
+html, body, form
+{
+	background: url(/Imagen/Fondo/FondoNegro.jpg);
+	border: 0px;
+	color: #333333;
+	font-family: Century Gothic, Calibri, Verdana;
+	font-size: 12px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+.TituloFlash
+{
+    font-family:Lucida Console;
+    font-size:80px;
+    color:Red;
+    font-style:italic;
+    font-weight:400;
+    
+}
+
+.SubTitulo
+{
+    font-family:Lucida Console;
+    font-size:30px;
+    color:Red;
+    font-style:italic;
+    font-weight:400;  
+}
+
+
+
+#DivCuerpo
+{
+	height: 91%;
+	width: 100%;
+}
+
+#DivEncabezado
+{
+	height: 5%;
+	width: 100%;
+}
+
+#DivPie
+{
+	border: 0px;
+	height: 4%;
+	width: 100%;
+}
+
+#DivPrincipal
+{
+	height: 100%;
+	width: 100%;
+}

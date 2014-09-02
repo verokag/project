@@ -1,0 +1,192 @@
+﻿@* @@model IEnumerable<Flash.Entidad.Aplicacion.RegistroEntidad>
+
+@{
+    ViewBag.Title = "Control";
+}
+
+<h2 style="align-content:center">Control</h2>
+
+@Html.Partial("Registros")
+ *@
+
+@model IEnumerable<Flash.Entidad.Aplicacion.RegistroEntidad>
+
+<script type="text/javascript">
+
+
+    var model = @Html.Raw(Json.Encode(Model))
+
+
+        function mostrarDetalle(idRegistro)
+        {
+
+            
+            $("#FechaLbl").attr("value", model[idRegistro].FechaEntrada);
+            $("#MarcaLbl").attr("value", model[idRegistro].Automovil.Modelo.Marca.Nombre);
+            $("#ModeloLbl").attr("value", model[idRegistro].Automovil.Modelo.Nombre);
+            $("#ColorLbl").attr("value", model[idRegistro].Automovil.Color.Nombre);
+            $("#AnioLbl").attr("value", model[idRegistro].Automovil.Anio);
+            $("#ClienteLbl").attr("value", model[idRegistro].Automovil.Cliente.Nombre);
+            $("#TelefonoLbl").attr("value", model[idRegistro].Automovil.Cliente.Telefono);
+            $("#DescriptionLbl").attr("value", model[idRegistro].Descripcion); 
+            $("#FallaLbl").attr("value", model[idRegistro].Falla.Nombre);
+
+    }
+
+
+</script>
+
+<div class="content-pers-div">
+    my-main-div
+    <table class="table-generic-content">
+        <tr>
+            <td class="subtitle">
+                <div>
+                    <h3 class="subtitle">Registro de Vehículos
+                    </h3>
+                    <form id="FormaRegistro" class="">
+                        <table class="regTable">
+                            <tr>
+                                <td colspan="2">
+                                    <label>Fecha</label>
+                                    @Html.TextBox("FechaLbl", "", new { @class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Marca</label>
+                                    @Html.TextBox("MarcaLbl", "", new { @readonly="readonly"  })
+                                 @*   @Html.DropDownList("Marcas", new SelectList(ViewBag.Marcas, "MarcaId", "Nombre")) *@
+                                </td>
+                                <td>
+                                    <label>Modelo</label>
+                                    @Html.TextBox("ModeloLbl", "", new {@class = "registry-data" })
+                                 @*  *@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td >
+                                    <label>Color</label>
+                                    @Html.TextBox("ColorLbl", "", new {@class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            
+                                <td >
+                                    <label>Año</label>
+                                    @Html.TextBox("AnioLbl", "", new {@class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>Cliente</label>
+                                    @Html.TextBox("ClienteLbl", "", new {@class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                                <td>
+                                    <label>Teléfono</label>
+                                    @Html.TextBox("TelefonoLbl", "", new {@class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label>Falla</label>
+                                    @Html.TextBox("FallaLbl", "", new {@class = "registry-data" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <label>Descripción</label>
+                                    @Html.TextArea("DescriptionLbl", "", new {@class = "registry-data text-area" })
+                                 @*   @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId")) *@
+                                </td>
+                            </tr>
+                        </table>
+                </form>
+            </div>
+            </td>
+            <td class="subtitle">
+                <div>
+                    <h3 class="subtitle">Registros recientes
+                    </h3>
+                    <form id="FormaRegistr" class="">
+                    <table class="regTable">
+                        <tr>
+                            <th>
+                                @Html.DisplayName("Fecha de Ingreso")
+                            </th>
+                            <th>
+                                @Html.DisplayName("Vehículo")
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+
+
+                            string Detalle = string.Empty;
+                            
+                            if (item.Automovil.Modelo.Marca.Nombre != null)
+                            {
+                                Detalle = item.Automovil.Modelo.Marca.Nombre;
+                            }
+
+                            if (item.Automovil.Modelo.Nombre != null)
+                            {
+                                Detalle += ' ' + item.Automovil.Modelo.Nombre;
+                            }
+                            if (item.Automovil.Color.Nombre != null)
+                            {
+                                Detalle += ' ' + item.Automovil.Color.Nombre;
+                            }
+                            if (item.Automovil.Anio != null) 
+                            {
+                                Detalle += ' ' + item.Automovil.Anio.ToString();
+                            }
+
+                            int idRegistro = item.RegistroId-1;
+                            int idRegistro2 = idRegistro;
+                            <tr>
+                                <td id="@idRegistro" onclick="mostrarDetalle(this.id)">
+                                    @Html.DisplayFor(modelItem => item.FechaEntrada)
+                                </td>
+                                <td id="@idRegistro2" onclick="mostrarDetalle(this.id)">
+                                    @Detalle
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                        </form>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+@* @{
+                                        string Detalle = string.Empty;
+                            if (item.Automovil.Modelo.Marca.Nombre != null) 
+                            {
+                                Detalle = item.Automovil.Modelo.Marca.Nombre;
+                            }
+                            
+                            if ( item.Automovil.Modelo.Nombre != null)
+                            {
+                                Detalle += ' ' + item.Automovil.Modelo.Nombre;
+                            }
+                            if (item.Automovil.Color.Nombre != null)
+                            {
+                                Detalle += ' ' + item.Automovil.Color.Nombre;
+                            }
+                                                 
+                                        }
+                                    @Html.Display(Detalle)
+
+
+ @ Html.DisplayFor(modelItem => item.Automovil.Modelo.Marca.Nombre + ' '+  item.Automovil.Modelo.Nombre + ' ' + item.Automovil.Anio )
+*@

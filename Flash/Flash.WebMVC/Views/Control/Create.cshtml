@@ -1,0 +1,174 @@
+﻿@model Flash.Entidad.Aplicacion.RegistroEntidad
+
+<script src="~/Scripts/jquery-1.8.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+@using (Html.BeginForm("Save", "Control"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div id="main-sub-div">
+        <table class="table-generic-content">
+            <tr>
+                <td class="subtitle">
+                    <h3 class="subtitle">Registro Automovil</h3>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div style="display: inline-block;width: 50%;">
+        <table class="regTable">
+            <tbody>
+                <tr>
+                    <td colspan="2"> Registro Entidad</td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Marcas</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("Marcas", new SelectList(ViewBag.Marcas, "MarcaId", "Nombre"), new { @id = "MarcasDD", @onchange = "GetModelosPorMarca()" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Modelo</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("Modelos", new SelectList(ViewBag.Modelos, "ModeloId", "Nombre", "Modelo"))
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Color</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("Color", new SelectList(ViewBag.Colores, "ColorID", "Nombre", "ColorId"))
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Año</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("Año", new SelectList(ViewBag.Years, "Año"))
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Cliente</label>
+                        <label>Nombre</label>
+                    </td>
+                    <td>
+                        @Html.TextBox("Cliente", "", new { @class = "registry-data" })
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Apellido</label>
+                    </td>
+                    <td>
+                        @Html.TextBox("Apellido", "", new { @class = "registry-data" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Teléfono</label>
+                    </td>
+                    <td>
+                        @Html.TextBox("TelefonoLbl", "", new { @class = "registry-data" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Celular</label>
+                    </td>
+                    <td>
+                        @Html.TextBox("CelLbl", "", new { @class = "registry-data" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Falla Id</label>
+                    </td>
+                    <td>
+                        @Html.DropDownList("Alias", new SelectList(ViewBag.Fallas, "FallaId", "Alias"))
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Descripcion</label>
+                    </td>
+                    <td>
+                        @Html.TextArea("Descripcion", "", new { @class = "registry-data" })
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <p>
+                            <input type="submit" value="Save" />
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+    </div>
+    <div style="display: inline;width: 60%;">
+        <img src="/Content/images/page3-img3.png" style="
+            position: fixed;
+            z-index: -1;
+            /* top: 0; */
+            /* left: 0; */
+            width: 30%;">
+    </div>
+
+}
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+                <script type="text/javascript">
+                    $('#MarcasDD').change(function () {
+
+                        var marcaId = $(this).val();
+
+                        $.getJSON('GetModelosPorMarca', { idMarca: marcaId }, function (modelos) {
+
+                            var modelosSelect = $('#Modelos');
+                            modelosSelect.empty();
+
+                            $.each(modelos["CarModel"], function (i, item) {
+                                $("#Modelos").append("<option value=\"" + i + "\">" + item.Nombre + "</option>");
+                            });
+
+                        });
+
+                    })
+
+
+                    function GetModelosPorMarca() {
+
+                        var marcaId = $(this).val();
+
+                        $.getJSON('GetModelosPorMarca', { idMarca: marcaId }, function (modelos) {
+
+                            var modelosSelect = $('#Modelos');
+                            modelosSelect.empty();
+
+                            $.each(modelos["CarModel"], function (i, item) {
+                                $("#Modelos").append("<option value=\"" + i + "\">" + item.Nombre + "</option>");
+                            });
+
+                        });
+                    }
+
+
+                </script>

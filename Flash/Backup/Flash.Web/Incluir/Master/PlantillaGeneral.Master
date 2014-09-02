@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PlantillaGeneral.master.cs" Inherits="Flash.Web.Incluir.Master.PlantillaGeneral" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Flash Fuel Injection</title>
+    
+    <link href="../../Css/General.css" rel="Stylesheet" type="text/css" />
+    <link href="../../Css/Division.css" rel="Stylesheet" type="text/css" />
+    <link href="../../Css/Tabla.css" rel="Stylesheet" type="text/css" />
+    
+    
+    <asp:ContentPlaceHolder ID="Encabezado" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ManejadorScript" runat="server" EnablePageMethods="True"></asp:ScriptManager>
+       
+        
+        <div id="DivGeneral">
+            <div id="DivEncabezado">
+                <div class="DivTitulo">Flash</div>
+
+                    <div class="DivCuentaUsuario">
+                        <asp:Label ID="NombreUsuario" runat="server" Text="[usuario]"></asp:Label>
+                        &nbsp; | &nbsp;
+                        
+                    </div>
+                </div>
+                <div id="DivCuerpo">
+                    <asp:ContentPlaceHolder ID="ContenedorCuerpo" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="DivPie">
+                     <div class="DivTexto">
+                        FlashRecepción v.1.0 | Desarrollado por CorSolutions
+                    </div>
+                
+                </div>
+         </div>
+    
+    </form>
+</body>
+</html>

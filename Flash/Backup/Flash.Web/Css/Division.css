@@ -1,0 +1,46 @@
+﻿#DivPie .DivTexto
+{
+	color: #ffffff;
+	font-size: 11px;
+	padding: 3px 10px 0px 0px;
+	text-align: right;
+}
+
+#DivEncabezado .DivTitulo
+{
+	color: #ffffff;
+	float: left;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 3px 0px 0px 10px;
+}
+
+#DivEncabezado .DivCuentaUsuario
+{
+	color: #ffffff;
+	float: right;
+	padding: 7px 10px 0px 0px;
+	text-align: right;
+	width: 350px;
+}
+
+#DivCuerpo .DivContenido
+{
+	background-color: #ffffff;
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	width: 95%;
+}
+
+#DivCuerpo .DivContenido .DivInformacionContenido
+{
+	height: 100%;
+	overflow: auto;
+}
+
+#DivCuerpo .DivContenido .DivContenidoTitulo
+{
+	background-color: #ff3300;
+	height: 25px;
+}

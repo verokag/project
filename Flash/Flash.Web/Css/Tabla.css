@@ -1,0 +1,26 @@
+﻿#DivControlIdentificacion
+{
+	margin: auto;
+	width: 300px;
+}
+
+#DivControlIdentificacion .TablaIdentificacion
+{
+	
+}
+
+#DivControlIdentificacion .TablaIdentificacion .TituloAzulTituloIdentificacion
+{
+	color: #4F95FF;
+	font-size: 18px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+#DivControlIdentificacion .TablaIdentificacion .TituloGrisTituloIdentificacion
+{
+	color: #414141;
+	font-size: 18px;
+	font-weight: bold;
+	vertical-align: middle;
+}
